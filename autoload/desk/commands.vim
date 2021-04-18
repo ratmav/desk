@@ -1,12 +1,12 @@
-" BookName: set the book name. {{{
-function! BookName(name)
+" desk#commands#BookName: set the book name. {{{
+function! desk#commands#BookName(name) abort
   call ctrlspace#tabs#SetTabLabel(tabpagenr(), a:name, 0)
   redraw!
 endfunction
 " }}}
 
-" BookNew: start a new book. {{{
-function! BookNew()
+" desk#commands#BookNew: start a new book. {{{
+function! desk#commands#BookNew() abort
   call inputsave()
   let path = input("new book path: ", "", "file")
   call inputrestore()
@@ -29,20 +29,20 @@ function! BookNew()
 endfunction
 " }}}
 
-" BookNext: change focus to next book on right. {{{
-function! BookNext()
+" desk#commands#BookNext: change focus to next book on right. {{{
+function! desk#commands#BookNext() abort
   tabnext
 endfunction
 " }}}
 
-" BookPrevious: change focus to previous book on left. {{{
-function! BookPrevious()
+" desk#commands#BookPrevious: change focus to previous book on left. {{{
+function! desk#commands#BookPrevious() abort
   tabprevious
 endfunction
 " }}}
 
-" BookQuit: quit/close a book. {{{
-function! BookQuit()
+" desk#commands#BookQuit: quit/close a book. {{{
+function! desk#commands#BookQuit() abort
   if tabpagenr("$") == 1
     echo "rebind the remaining book, or quit"
   else
@@ -52,8 +52,8 @@ function! BookQuit()
 endfunction
 " }}}
 
-" BookRebind: rebind an open book, i.e. move to a new working directory. {{{
-function! BookRebind()
+" desk#commands#BookRebind: rebind an open book, i.e. move to a new working directory. {{{
+function! desk#commands#BookRebind() abort
   call inputsave()
   let path = input("bind book to: ", "", "file")
   call inputrestore()
@@ -78,8 +78,8 @@ function! BookRebind()
 endfunction
 " }}}
 
-" BookRename: rename a book. {{{
-function! BookRename()
+" desk#commands#BookRename: rename a book. {{{
+function! desk#commands#BookRename() abort
   call inputsave()
   let name = input("new book name: ")
   call inputrestore()
@@ -89,14 +89,14 @@ function! BookRename()
 endfunction
 " }}}
 
-" BookTreeToggle: toggle book tree view. {{{
-function! BookTreeToggle()
+" desk#commands#BookTreeToggle: toggle book tree view. {{{
+function! desk#commands#BookTreeToggle() abort
   call g:NERDTreeCreator.ToggleTabTree(".")
 endfunction
 " }}}
 
-" Init: opens and names initial book on startup. {{{
-function! Init()
+" desk#commands#Init: opens and names initial book on startup. {{{
+function! desk#commands#Init() abort
   " TODO: the vim-ctrlspace file search complains about
   " the project root not being set if vim is opened in a directory
   " without a .git, etc. directory, i.e. if ctrlspace#roots#FindProjectRoot()
@@ -106,21 +106,21 @@ function! Init()
 endfunction
 " }}}
 
-" RefreshCache: refresh the tree and file search cache. {{{
-function! RefreshCache()
+" desk#commands#RefreshCache: refresh the tree and file search cache. {{{
+function! desk#commands#RefreshCache() abort
   call g:NERDTree.ForCurrentTab().getRoot().refresh()
   call ctrlspace#files#RefreshFiles()
 endfunction
 " }}}
 
-" SearchBookNames: search books by name. {{{
-function! SearchBookNames()
+" desk#commands#SearchBookNames: search books by name. {{{
+function! desk#commands#SearchBookNames() abort
   execute 'CtrlSpace L'
 endfunction
 " }}}
 
-" SearchPageNames: search book pages by name. {{{
-function! SearchPageNames()
+" desk#commands#SearchPageNames: search book pages by name. {{{
+function! desk#commands#SearchPageNames() abort
   "" using pure vimscript (probably glob) for search and ignore logic
   "" like ctrlp would be nice.
   execute 'CtrlSpace O'
