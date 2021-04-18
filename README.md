@@ -47,7 +47,7 @@ over time, these dependencies should (hopefully) be removed.
 
 add the following to your vim configuration:
 
-```vimscript
+```viml
 " desk {{{
 set nocompatible
 set hidden
@@ -59,7 +59,7 @@ set encoding=utf-8
 
 `Ctrl-d`(esk) for menmonic consistency:
 
-```vimscript
+```viml
 " desk {{{
 " open a new book.
 nnoremap <silent><C-d>n :execute 'DeskBookNew'<CR>
