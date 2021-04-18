@@ -1,7 +1,32 @@
 desk
 ====
 
-sugar layer for vim buffer, window, tab, and file management.
+sugar for vim buffer, window, tab, and file management.
+
+## model
+
+desk provides commands to help manage multiple projects in a single vim instance by grouping windows, buffers, and files under tabs, where a project is a local file directory/cloned source code repository. desk makes it possible to swap projects as "books", where things like the tree view, page name search, etc. are scoped by a given book.
+
+tabs have a...storied history, and may not be useful for everyone. it's _highly recommended_ that users become proficient with default vim buffer and window behavior **first**, i.e. get used to using only buffers and windows. after that point, the default tab behavior may be interesting and useful to play with. finally, once the **default** vim buffer/window/tab model and use cases are well understood, desk may be a good convenience wrapper.
+
+for a starting point, here's a high-level overview of the default vim model:
+
+* buffers are an in-memory representation of a file on disk. vim reads a file and loads the content into a buffer.
+* windows are a viewport for buffers. they can be opened, quit, split, and moved.
+* tabs are _groups of windows_. this is important: vim tabs **do not** behave like tabs in other applications.
+
+here's how desk's model and nomenclature fits in:
+
+* a "book" is a tab, roughly.
+  * file trees are scoped by book.
+  * books can by searched by name
+    * books are named by the last file path component.
+* windows are windows.
+  * windows are grouped by book.
+* a "page" is a buffer.
+  * pages are grouped by book.
+  * pages are named after their respective files, just like regular vim.
+  * pages can be seached by name
 
 ## installation
 
@@ -17,6 +42,63 @@ currently, desk leans on several other vim plugins. install the following:
 * [vim-bufkill](https://github.com/qpkorr/vim-bufkill)
 
 over time, these dependencies should (hopefully) be removed.
+
+## configuration
+
+add the following to your vim configuration:
+
+```vimscript
+" desk {{{
+set nocompatible
+set hidden
+set encoding=utf-8
+" }}}
+
+" opens and names initial book on startup.
+execute 'DeskInit'
+```
+
+### suggested keybindings
+
+`Ctrl-d`(esk) for menmonic consistency:
+
+```vimscript
+" desk {{{
+" set the book name.
+nnoremap <silent><C-d>n :execute 'DeskBookNew'<CR>
+
+" change focus to the next book on the right.
+nnoremap <silent><C-d>l :execute 'DeskBookNext'<CR>
+
+" change focus to the previous book on the left.
+nnoremap <silent><C-d>h :execute 'DeskBookPrevious'<CR>
+
+" quit/close a book.
+nnoremap <silent><C-d>q :execute 'DeskBookQuit'<CR>
+
+" rebind an open book, i.e. move to a new working directory.
+nnoremap <silent><C-d>b :execute 'DeskBookRebind'<CR>
+
+" rename a book.
+nnoremap <silent><C-d>r :execute 'DeskBookRename'<CR>
+
+" toggle book tree view.
+nnoremap <silent><C-d>t :execute 'DeskBookTreeToggle'<CR>
+
+" refreshes the tree and file search cache.
+nnoremap <silent><C-d>c :execute 'DeskRefreshCache'<CR>
+
+" search books by name.
+nnoremap <silent><C-d>s :execute 'DeskSearchBookNames'<CR>
+
+" search book pages by name.
+nnoremap <silent><C-d>p :execute 'DeskSearchBookPageNames'<CR>
+" }}}
+```
+
+## complimentary plugins
+
+[vim-airline](https://github.com/vim-airline/vim-airline), with tabline enabled, has been useful for providing visual queues such as current book/working directory/git branch/buffer.
 
 ## acknowledgements
 
