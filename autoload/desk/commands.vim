@@ -1,11 +1,4 @@
-" desk#commands#BookName: set the book name. {{{
-function! desk#commands#BookName(name) abort
-  call ctrlspace#tabs#SetTabLabel(tabpagenr(), a:name, 0)
-  redraw!
-endfunction
-" }}}
-
-" desk#commands#BookNew: start a new book. {{{
+" desk#commands#BookNew: open a new book. {{{
 function! desk#commands#BookNew() abort
   call inputsave()
   let path = input("new book path: ", "", "file")
@@ -21,7 +14,7 @@ function! desk#commands#BookNew() abort
     call ctrlspace#roots#SetCurrentProjectRoot(path)
 
     " set the book name to the last dir on path
-    call BookName(fnamemodify(getcwd(), ':t\'))
+    call desk#utils#BookName(fnamemodify(getcwd(), ':t\'))
   else
     redraw!
     echo "invalid book path"
@@ -70,7 +63,7 @@ function! desk#commands#BookRebind() abort
     call ctrlspace#roots#SetCurrentProjectRoot(path)
 
     " set the book name to the last dir on path
-    call BookName(fnamemodify(getcwd(), ':t\'))
+    call desk#utils#BookName(fnamemodify(getcwd(), ':t\'))
   else
     redraw!
     echo "invalid book path"
@@ -84,7 +77,7 @@ function! desk#commands#BookRename() abort
   let name = input("new book name: ")
   call inputrestore()
   if name != ""
-    call DeskBookName(name)
+    call desk#utils#BookName(name)
   end
 endfunction
 " }}}
@@ -92,17 +85,6 @@ endfunction
 " desk#commands#BookTreeToggle: toggle book tree view. {{{
 function! desk#commands#BookTreeToggle() abort
   call g:NERDTreeCreator.ToggleTabTree(".")
-endfunction
-" }}}
-
-" desk#commands#Init: opens and names initial book on startup. {{{
-function! desk#commands#Init() abort
-  " TODO: the vim-ctrlspace file search complains about
-  " the project root not being set if vim is opened in a directory
-  " without a .git, etc. directory, i.e. if ctrlspace#roots#FindProjectRoot()
-  " comes back empty. need the just set it to whatever the tcd is.
-  " a 'project root not set'   " set the book name to the last dir on path
-  call BookName(fnamemodify(getcwd(), ':t\'))
 endfunction
 " }}}
 

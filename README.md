@@ -53,9 +53,6 @@ set nocompatible
 set hidden
 set encoding=utf-8
 " }}}
-
-" opens and names initial book on startup.
-execute 'DeskInit'
 ```
 
 ### suggested keybindings
@@ -64,7 +61,7 @@ execute 'DeskInit'
 
 ```vimscript
 " desk {{{
-" set the book name.
+" open a new book.
 nnoremap <silent><C-d>n :execute 'DeskBookNew'<CR>
 
 " change focus to the next book on the right.
