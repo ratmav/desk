@@ -101,8 +101,8 @@ function! desk#commands#SearchBookNames() abort
 endfunction
 " }}}
 
-" desk#commands#SearchPageNames: search book pages by name. {{{
-function! desk#commands#SearchPageNames() abort
+" desk#commands#SearchBookPageNames: search book pages by name. {{{
+function! desk#commands#SearchBookPageNames() abort
   "" using pure vimscript (probably glob) for search and ignore logic
   "" like ctrlp would be nice.
   execute 'CtrlSpace O'

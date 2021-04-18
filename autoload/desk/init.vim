@@ -37,5 +37,5 @@ function! desk#init#Init() abort
   command! DeskBookTreeToggle :call desk#commands#BookTreeToggle()
   command! DeskRefreshCache :call desk#commands#RefreshCache()
   command! DeskSearchBookNames :call desk#commands#SearchBookNames()
-  command! DeskSearchPageNames :call desk#commands#SearchPageNames()
+  command! DeskSearchBookPageNames :call desk#commands#SearchBookPageNames()
 endfunction
