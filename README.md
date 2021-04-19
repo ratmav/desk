@@ -55,43 +55,20 @@ set encoding=utf-8
 " }}}
 ```
 
-### suggested keybindings
+### commands and default keybindings
 
-`Ctrl-d`(esk) for menmonic consistency:
+`Ctrl-d`(esk) -> `command`: description:
 
-```viml
-" desk {{{
-" open a new book.
-nnoremap <silent><C-d>n :execute 'DeskBookNew'<CR>
-
-" change focus to the next book on the right.
-nnoremap <silent><C-d>l :execute 'DeskBookNext'<CR>
-
-" change focus to the previous book on the left.
-nnoremap <silent><C-d>h :execute 'DeskBookPrevious'<CR>
-
-" quit/close a book.
-nnoremap <silent><C-d>q :execute 'DeskBookQuit'<CR>
-
-" rebind an open book, i.e. move to a new working directory.
-nnoremap <silent><C-d>b :execute 'DeskBookRebind'<CR>
-
-" rename a book.
-nnoremap <silent><C-d>r :execute 'DeskBookRename'<CR>
-
-" toggle book tree view.
-nnoremap <silent><C-d>t :execute 'DeskBookTreeToggle'<CR>
-
-" refreshes the tree and file search cache.
-nnoremap <silent><C-d>c :execute 'DeskRefreshCache'<CR>
-
-" search books by name.
-nnoremap <silent><C-d>s :execute 'DeskSearchBookNames'<CR>
-
-" search book pages by name.
-nnoremap <silent><C-d>p :execute 'DeskSearchBookPageNames'<CR>
-" }}}
-```
+* `<C-d>n` -> `DeskBookNew`: open a (n)ew book.
+* `<C-d>l` -> `DeskBookNext`: change focus to the (n)ext book on the right.
+* `<C-d>h` -> `DeskBookPrevious`: change focus to the (p)revious book on the left.
+* `<C-d>q` -> `DeskBookQuit`: (q)uit/close a book.
+* `<C-d>b` -> `DeskBookRebind`: re(b)ind an open book, i.e. move to a new working directory.
+* `<C-d>r` -> `DeskBookRename`: (r)ename a book.
+* `<C-d>t` -> `DeskBookTreeToggle`: toggle book (t)ree view.
+* `<C-d>c` -> `DeskRefreshCache`: refreshes the book tree and file search (c)ache.
+* `<C-d>s` -> `DeskSearchBookNames`: (s)earch books by name.
+* `<C-d>s` -> `DeskSearchBookPageNames`: search book (p)ages by name.
 
 ## complimentary plugins
 
