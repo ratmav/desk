@@ -88,13 +88,6 @@ function! desk#commands#BookTreeToggle() abort
 endfunction
 " }}}
 
-" desk#commands#RefreshCache: refresh the tree and file search cache. {{{
-function! desk#commands#RefreshCache() abort
-  call g:NERDTree.ForCurrentTab().getRoot().refresh()
-  call ctrlspace#files#RefreshFiles()
-endfunction
-" }}}
-
 " desk#commands#SearchBookNames: search books by name. {{{
 function! desk#commands#SearchBookNames() abort
   execute 'CtrlSpace L'

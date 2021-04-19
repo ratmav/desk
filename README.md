@@ -66,7 +66,6 @@ set encoding=utf-8
 * `<C-d>b` -> `DeskBookRebind`: re(b)ind an open book, i.e. move to a new working directory.
 * `<C-d>r` -> `DeskBookRename`: (r)ename a book.
 * `<C-d>t` -> `DeskBookTreeToggle`: toggle book (t)ree view.
-* `<C-d>c` -> `DeskRefreshCache`: refreshes the book tree and file search (c)ache.
 * `<C-d>s` -> `DeskSearchBookNames`: (s)earch books by name.
 * `<C-d>s` -> `DeskSearchBookPageNames`: search book (p)ages by name.
 
