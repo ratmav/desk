@@ -41,8 +41,6 @@ function! desk#init#Commands() abort
   command! DeskBookRebind :call desk#commands#BookRebind()
   command! DeskBookRename :call desk#commands#BookRename()
   command! DeskBookTreeToggle :call desk#commands#BookTreeToggle()
-  command! DeskSearchBookNames :call desk#commands#SearchBookNames()
-  command! DeskSearchBookPageNames :call desk#commands#SearchBookPageNames()
 endfunction
 " }}}
 
@@ -55,7 +53,5 @@ function! desk#init#KeyMappings() abort
   nnoremap <silent><C-d>b :execute 'DeskBookRebind'<CR>
   nnoremap <silent><C-d>r :execute 'DeskBookRename'<CR>
   nnoremap <silent><C-d>t :execute 'DeskBookTreeToggle'<CR>
-  nnoremap <silent><C-d>s :execute 'DeskSearchBookNames'<CR>
-  nnoremap <silent><C-d>p :execute 'DeskSearchBookPageNames'<CR>
 endfunction
 " }}}

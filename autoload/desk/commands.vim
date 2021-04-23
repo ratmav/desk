@@ -88,14 +88,4 @@ function! desk#commands#BookTreeToggle() abort
 endfunction
 " }}}
 
-" desk#commands#SearchBookNames: search books by name. {{{
-function! desk#commands#SearchBookNames() abort
-  execute 'CtrlSpace L'
-endfunction
-" }}}
-
-" desk#commands#SearchBookPageNames: search book pages by name. {{{
-function! desk#commands#SearchBookPageNames() abort
-  execute 'CtrlSpace O'
-endfunction
 " }}}
