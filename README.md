@@ -5,7 +5,7 @@ sugar for vim buffer, window, tab, and file management.
 
 ## model
 
-desk provides commands to help manage multiple projects in a single vim instance by grouping windows, buffers, and files under tabs, where a project is a local file directory/cloned source code repository. desk makes it possible to swap projects as "books", where things like the tree view, page name search, etc. are scoped by a given book.
+desk provides commands to help manage multiple projects in a single vim instance by grouping windows, buffers, and files under tabs, where a project is a local file directory/cloned source code repository. desk makes it possible to swap projects as "books", where things like the tree view, etc. are scoped by a given book.
 
 tabs have a...storied history, and may not be useful for everyone. it's _highly recommended_ that users become proficient with default vim buffer and window behavior **first**, i.e. get used to using only buffers and windows. after that point, the default tab behavior may be interesting and useful to play with. finally, once the **default** vim buffer/window/tab model and use cases are well understood, desk may be a good convenience wrapper.
 
@@ -19,14 +19,12 @@ here's how desk's model and nomenclature fits in:
 
 * a "book" is a tab, roughly.
   * file trees are scoped by book.
-  * books can by searched by name
-    * books are named by the last file path component.
+  * books are named by the last file path component.
 * windows are windows.
   * windows are grouped by book.
 * a "page" is a buffer.
   * pages are grouped by book.
   * pages are named after their respective files, just like regular vim.
-  * pages can be seached by name
 
 ## installation
 
